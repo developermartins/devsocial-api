@@ -8,6 +8,8 @@ import commentsRoutes from "./routes/users.js";
 import likesRoutes from "./routes/users.js";
 import postsRoutes from "./routes/users.js";
 
+app.use(Express.json());
+
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/comments", commentsRoutes);
