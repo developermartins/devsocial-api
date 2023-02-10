@@ -1,8 +1,8 @@
 import mysql from "mysql";
 
 export const db = mysql.createConnection({
-     host: process.env.DB_HOST,
-     user: process.env.DB_USER,
-     password: process.env.DB_PASSWORD,
-     database: process.env.database
+     host: 'localhost',
+     user: 'root',
+     password: 'devmarts@MartsDev2230',
+     database: 'social'
 })

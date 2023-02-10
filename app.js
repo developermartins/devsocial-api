@@ -1,14 +1,14 @@
-import Express from "express";
-const app = Express();
+import express from "express";
+const app = express();
 const port = 3001;
 
-import authRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import commentsRoutes from "./routes/users.js";
 import likesRoutes from "./routes/users.js";
 import postsRoutes from "./routes/users.js";
 
-app.use(Express.json());
+app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
