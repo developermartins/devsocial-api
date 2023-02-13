@@ -1,4 +1,4 @@
-import { resgisterUserServices } from "../services/authServices.js";
+import { loginServices, resgisterUserServices } from "../services/authServices.js";
 
 export const register = async (req, res) => {
 
@@ -13,8 +13,19 @@ export const register = async (req, res) => {
     return res.status(200).json("User has been created.");
 };
 
-export const login = (req, res) => {
+export const login = async (req, res) => {
 
+  const { username, password } = req.body;
+
+  const { type, message } = await loginServices(username, password);
+
+  if (type) return res.status(400).json(message);
+
+  res.cookie("acessToken", message.token, {
+    httoOnly: true,
+  })
+    .status(200)
+    .json(message.others);
 };
 
 export const logout = (req, res) => {

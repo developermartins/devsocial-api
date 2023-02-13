@@ -7,8 +7,12 @@ import userRoutes from "./routes/users.js";
 import commentsRoutes from "./routes/users.js";
 import likesRoutes from "./routes/users.js";
 import postsRoutes from "./routes/users.js";
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
 app.use(express.json());
+app.use(cors());
+app.use(cookieParser())
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
