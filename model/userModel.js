@@ -9,6 +9,15 @@ export const getUserByUsername = async (username) => {
      return result;
 };
 
+export const getUserByEmail = async (email) => {
+     const [result] = await connection.execute (
+          "SELECT * FROM users WHERE username = ?",
+          [email],
+     );
+
+     return result;
+};
+
 export const registerUser = async (username, email, hashedPassword, name) => {
     await connection.execute(
           "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?, ?, ?, ?)",
