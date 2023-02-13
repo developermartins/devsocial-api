@@ -28,6 +28,10 @@ export const login = async (req, res) => {
     .json(message.others);
 };
 
-export const logout = (req, res) => {
+export const logout = (_req, res) => {
 
+  res.clearCookie("acessToken", {
+    secure: true,
+    sameSite: "none",
+  }).status(200).json("User has been logged out.");
 };
