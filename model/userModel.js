@@ -11,7 +11,7 @@ export const getUserByUsername = async (username) => {
 
 export const getUserByEmail = async (email) => {
      const [result] = await connection.execute (
-          "SELECT * FROM users WHERE username = ?",
+          "SELECT * FROM users WHERE email = ?",
           [email],
      );
 
