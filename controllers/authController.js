@@ -6,7 +6,9 @@ export const register = async (req, res) => {
 
     const { type, message } = await resgisterUserServices(username, email, password, name);
 
-    if (type) return res.status(409).json(message);
+    if (type === 'USER_ALREADY_EXISTS' || type === 'EMAIL_ALREADY_IN_USE') return res.status(409).json(message);
+    if (type === 'INVALID_PASSWORD') return res.status(400).json(message);
+    if (type === 'INAVLID_MAIL') return res.status(400).json(message);
 
     return res.status(200).json("User has been created.");
 };
