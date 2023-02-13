@@ -1,6 +1,6 @@
 import { connection } from "./connect.js";
 
-export const getUser = async (username) => {
+export const getUserByUsername = async (username) => {
      const [result] = await connection.execute (
           "SELECT * FROM users WHERE username = ?",
           [username],
@@ -11,7 +11,9 @@ export const getUser = async (username) => {
 
 export const registerUser = async (username, email, hashedPassword, name) => {
     await connection.execute(
-          "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?)",
+          "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?, ?, ?, ?)",
           [username, email, hashedPassword, name],
     );
+
+    return
 };
