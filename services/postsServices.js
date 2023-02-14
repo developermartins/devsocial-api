@@ -7,3 +7,7 @@ export const getPostsServices = async (userInfo) => {
 
      return { type: null, message: posts };
 };
+
+export const addPostServices = async (post) => {
+
+};

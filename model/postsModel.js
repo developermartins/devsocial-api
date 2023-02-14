@@ -11,3 +11,7 @@ export const getPosts = async (userInfo) => {
 
      return result;
 };
+
+export const addPost = async (post) => {
+
+};

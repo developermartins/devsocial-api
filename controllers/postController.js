@@ -1,4 +1,4 @@
-import { getPostsServices } from "../services/postsServices.js";
+import { getPostsServices, addPostServices } from "../services/postsServices.js";
 import jwt from "jsonwebtoken";
 import * as dotenv from 'dotenv';
 
@@ -15,6 +15,23 @@ export const posts = async (req, res) => {
           const { type, message }  = await getPostsServices(userInfo);
      
           if (type) return res.status(404).json(message);
+     
+          return res.status(200).json(message);
+     })
+
+};
+
+export const addPost = async (req, res) => {
+     const token = req.cookies.acessToken;
+
+     if (!token) return res.status(401).json("Not logged in!");
+
+     jwt.verify(token, process.env.SECRET, async function(err, post) {
+          if (err) return res.status(403).json("Token is not valid!");
+
+          const { type, message }  = await addPostServices(post);
+     
+          if (type) return ;
      
           return res.status(200).json(message);
      })
