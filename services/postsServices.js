@@ -1,7 +1,7 @@
 import { getPosts } from "../model/postsModel.js";
 
-export const getPostsServices = async () => {
-     const posts = await getPosts();
+export const getPostsServices = async (userInfo) => {
+     const posts = await getPosts(userInfo);
 
      if (posts.length === 0) return { type: 'NOTHING_POSTS_FOUND', message: 'Nothing posts found.' };
 
