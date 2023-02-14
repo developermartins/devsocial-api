@@ -24,5 +24,5 @@ export const registerUser = async (username, email, hashedPassword, name) => {
           [username, email, hashedPassword, name],
     );
 
-    return
+    return ;
 };
