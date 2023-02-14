@@ -1,4 +1,4 @@
-import { getPosts } from "../model/postsModel.js";
+import { addPost, getPosts } from "../model/postsModel.js";
 
 export const getPostsServices = async (userInfo) => {
      const posts = await getPosts(userInfo);
@@ -8,6 +8,10 @@ export const getPostsServices = async (userInfo) => {
      return { type: null, message: posts };
 };
 
-export const addPostServices = async (post) => {
+export const addPostServices = async (post_content, img, userId) => {
+     if (!post_content) return { type: 'MISSING_DATA', message: 'Post content is required.' };
 
+     await addPost(post_content, img, userId);
+
+     return { type: null, message: 'Post has been created!' };
 };
