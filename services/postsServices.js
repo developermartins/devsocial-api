@@ -8,10 +8,10 @@ export const getPostsServices = async (userInfo) => {
      return { type: null, message: posts };
 };
 
-export const addPostServices = async (post_content, img, userId) => {
-     if (!post_content) return { type: 'MISSING_DATA', message: 'Post content is required.' };
+export const addPostServices = async (postContent, img, userId) => {
+     if (!postContent) return { type: 'MISSING_DATA', message: 'Post content is required.' };
 
-     await addPost(post_content, img, userId);
+     await addPost(postContent, img, userId);
 
      return { type: null, message: 'Post has been created!' };
 };

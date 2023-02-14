@@ -24,14 +24,14 @@ export const posts = async (req, res) => {
 export const addPost = async (req, res) => {
      const token = req.cookies.acessToken;
 
-     const { post_content, img } = req.body;
+     const { postContent, img } = req.body;
 
      if (!token) return res.status(401).json("Not logged in!");
 
      jwt.verify(token, process.env.SECRET, async function(err, userInfo) {
           if (err) return res.status(403).json("Token is not valid!");
 
-          const { type, message }  = await addPostServices(post_content, img, userInfo.id);
+          const { type, message }  = await addPostServices(postContent, img, userInfo.id);
      
           if (type) return res.status(404).json(message);
      
