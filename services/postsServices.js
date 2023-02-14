@@ -1,4 +1,4 @@
-import { getPosts } from "../model/postsModel";
+import { getPosts } from "../model/postsModel.js";
 
 export const getPostsServices = async () => {
      const posts = await getPosts();
