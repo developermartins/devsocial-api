@@ -6,5 +6,7 @@ export const getLikes = async (req, res) => {
 
      const { postId } = req.query;
 
-     await getLikeServices(postId);
+     const { message } = await getLikeServices(postId);
+
+     return res.status(200).json(message);
 };

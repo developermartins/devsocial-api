@@ -1,4 +1,4 @@
-import { getLikes } from "../model/likeModel";
+import { getLikes } from "../model/likeModel.js";
 
 export const getLikeServices = async (postId) => {
      const res = await getLikes(postId);
