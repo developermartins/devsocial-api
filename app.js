@@ -27,4 +27,4 @@ app.use("/api/comments", commentsRoutes);
 app.use("/api/posts", postsRoutes);
 app.use("/api/likes", likesRoutes);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}! 👌`));
+app.listen(port, () => console.log(`App listening on port ${port}! 👌`));
