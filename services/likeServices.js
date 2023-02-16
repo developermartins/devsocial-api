@@ -1,4 +1,4 @@
-import { getLikes } from "../model/likeModel.js";
+import { addDislike, addLike, getLikes } from "../model/likeModel.js";
 
 export const getLikeServices = async (postId) => {
      const res = await getLikes(postId);
@@ -6,11 +6,14 @@ export const getLikeServices = async (postId) => {
      return { type: null, message: res };
 };
 
+export const addLikeServices = async (userId, postId) => {
+     await addLike(userId, postId);
 
-export const addLikeServices = async () => {
-     
+     return { type: null, message: "Post has been liked!" };
 };
 
-export const addDislikeServices = async () => {
+export const addDislikeServices = async (userId, postId) => {
+     await addDislike(userId, postId);
 
+     return { type: null, message: "Like has been removed!" };
 };

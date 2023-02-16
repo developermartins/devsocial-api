@@ -15,14 +15,14 @@ export const like = async (req, res) => {
 
      const token = req.cookies.acessToken;
 
-     const { comment_content, postId } = req.body;
+     const { postId } = req.query;
 
      if (!token) return res.status(401).json("Not logged in!");
 
      jwt.verify(token, process.env.SECRET, async function(err, userInfo) {
           if (err) return res.status(403).json("Token is not valid!");
 
-          const { type, message }  = await addCommentServices(comment_content, postId, userInfo);
+          const { type, message } = await addLikeServices(userInfo.id, postId);
      
           if (type) return res.status(404).json(message);
      
@@ -34,14 +34,14 @@ export const dislike = async (req, res) => {
 
      const token = req.cookies.acessToken;
 
-     const { comment_content, postId } = req.body;
+     const { postId } = req.query;
 
      if (!token) return res.status(401).json("Not logged in!");
 
      jwt.verify(token, process.env.SECRET, async function(err, userInfo) {
           if (err) return res.status(403).json("Token is not valid!");
 
-          const { type, message }  = await addCommentServices(comment_content, postId, userInfo);
+          const { type, message } = await addDislikeServices(userInfo.id, postId);
      
           if (type) return res.status(404).json(message);
      
