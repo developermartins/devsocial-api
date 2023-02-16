@@ -18,7 +18,7 @@ export const comments = async (req, res) => {
 
 export const addComment = async (req, res) => {
 
-      const token = req.cookies.acessToken;
+     const token = req.cookies.acessToken;
 
      const { comment_content, postId } = req.body;
 
