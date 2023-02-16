@@ -5,3 +5,12 @@ export const getLikeServices = async (postId) => {
 
      return { type: null, message: res };
 };
+
+
+export const addLikeServices = async () => {
+
+};
+
+export const addDislikeServices = async () => {
+
+};
