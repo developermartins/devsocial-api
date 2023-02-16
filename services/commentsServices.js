@@ -1,4 +1,4 @@
-import { getComments } from "../model/commentsModel";
+import { getComments } from "../model/commentsModel.js";
 
 export const getCommentsServices = async (postId) => {
      const res = await getComments(postId);
