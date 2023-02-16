@@ -15,5 +15,5 @@ export const addCommentServices = async (comment_content, postId, userInfo) => {
 
      const res = await addComment(comment_content, postId, userInfo);
 
-     return { type: null, message: res }
+     return { type: null, message: 'Comment has been created!' };
 };
