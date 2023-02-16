@@ -18,7 +18,7 @@ export const addComment = async (comment_content, postId, userInfo) => {
           [
                moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
                comment_content,
-               userInfo,
+               userInfo.id,
                postId
           ]
      );
