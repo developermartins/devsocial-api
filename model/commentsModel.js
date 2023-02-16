@@ -10,3 +10,18 @@ export const getComments = async (postId) => {
 
      return result;
 };
+
+export const addComment = async (comment_content, postId, userInfo) => {
+
+     await connection.execute (
+          "INSERT INTO comments (`create_time`, `comment_content`, `commentUserId`, `postId`) VALUE (?, ?, ?, ?)",
+          [
+               moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+               comment_content,
+               userInfo,
+               postId
+          ]
+     );
+
+     return;
+};
