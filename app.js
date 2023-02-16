@@ -4,7 +4,7 @@ const port = 3001;
 
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
-import commentsRoutes from "./routes/users.js";
+import commentsRoutes from "./routes/comments.js";
 import likesRoutes from "./routes/users.js";
 import postsRoutes from "./routes/posts.js";
 import cors from "cors";
