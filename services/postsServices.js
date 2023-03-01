@@ -1,11 +1,18 @@
-import { addPost, getPosts } from "../model/postsModel.js";
+import { addPost, getPosts, getPostsById } from "../model/postsModel.js";
 
-export const getPostsServices = async (userInfo) => {
-     const posts = await getPosts(userInfo);
+export const getPostsServices = async (userInfo, userId) => {
 
-     if (posts.length === 0) return { type: 'NOTHING_POSTS_FOUND', message: 'Nothing posts found.' };
+     if (!userId) {
+          const posts = await getPosts(userInfo);
+          if (posts.length === 0) return { type: 'NOTHING_POSTS_FOUND', message: 'Nothing posts found.' }
 
-     return { type: null, message: posts };
+          return { type: null, message: posts };
+     } else {
+          const postsById = await getPostsById(userId);
+          if (postsById.length === 0) return { type: 'NOTHING_POSTS_FOUND', message: 'Nothing posts found.' }
+
+          return { type: null, message: postsById };
+     };
 };
 
 export const addPostServices = async (postContent, img, userId) => {

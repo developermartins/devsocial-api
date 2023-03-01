@@ -7,12 +7,14 @@ dotenv.config();
 export const posts = async (req, res) => {
      const token = req.cookies.acessToken;
 
+     const { userId } = req.query;
+
      if (!token) return res.status(401).json("Not logged in!");
 
      jwt.verify(token, process.env.SECRET, async function(err, userInfo) {
           if (err) return res.status(403).json("Token is not valid!");
 
-          const { type, message }  = await getPostsServices(userInfo);
+          const { type, message }  = await getPostsServices(userInfo, userId);
      
           if (type) return res.status(404).json(message);
      

@@ -13,6 +13,16 @@ export const getPosts = async (userInfo) => {
      return result;
 };
 
+export const getPostsById = async (userId) => {
+
+     const [result] = await connection.execute (
+          `SELECT p.*, u.id AS userId, name, profile_pic FROM posts AS p JOIN users AS u ON (u.id = p.userId) WHERE p.userId = ?`,
+          [userId]
+     );
+
+     return result;
+};
+
 export const addPost = async (post_content, img, userId) => {
 
      await connection.execute (
