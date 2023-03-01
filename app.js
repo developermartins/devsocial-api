@@ -10,11 +10,16 @@ import postsRoutes from "./routes/posts.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
+import bodyParser from "body-parser";
 
 app.use((_req, res, next) => {
      res.header("Access-Control-Allow-Credentials", true)
      next()
 });
+
+app.use(bodyParser.urlencoded({
+     extended: true
+}));
 
 app.use(express.json());
 app.use(cors({

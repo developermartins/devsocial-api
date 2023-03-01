@@ -20,7 +20,7 @@ export const addLike = async (userId, postId) => {
 
 export const addDislike = async (userId, postId) => {
      const [result] = await connection.execute (
-         "DELETE FROM likes WHERE `userId` = ? AND `postId` = ?"
+         "DELETE FROM likes WHERE `userId` = ? AND `postId` = ?",
           [userId, postId]
      );
 
