@@ -1,5 +1,9 @@
 import { connection } from "./connect.js";
 
+export const getUserById = async (userId) => {
+     
+};
+
 export const getUserByUsername = async (username) => {
      const [result] = await connection.execute (
           "SELECT * FROM users WHERE username = ?",
