@@ -18,10 +18,10 @@ export const addRelationship = async (followerUserId, followedUserId) => {
      return result;
 };
 
-export const deleteRelationship = async (userId, postId) => {
+export const deleteRelationship = async (userId, followedUserId) => {
      const [result] = await connection.execute (
-         "DELETE FROM likes WHERE `userId` = ? AND `postId` = ?",
-          [userId, postId]
+         "DELETE FROM relationships WHERE `followerUserId` = ? AND `followedUserId` = ?",
+          [userId, followedUserId]
      );
 
      return result;

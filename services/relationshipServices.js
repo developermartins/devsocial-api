@@ -15,5 +15,5 @@ export const addRelationshipServices = async (followerUserId, followedUserId) =>
 export const deleteRelationshipServices = async (userId, postId) => {
      await deleteRelationship(userId, postId);
 
-     return { type: null, message: "Like has been removed!" };
+     return { type: null, message: "Unfollow." };
 };
