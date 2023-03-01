@@ -5,5 +5,9 @@ export const getUserServices = async (userId) => {
 
      const user = await getUserById(userId);
 
-     return { type: null, message: posts };
+     if (!user) return { type: 'NOT_FOUND', message: 'User not found' }
+
+     const { password, ...info } = user;
+
+     return { type: null, message: info };
 };
