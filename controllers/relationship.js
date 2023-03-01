@@ -4,11 +4,11 @@ import { getRelationshipServices, addRelationshipServices, deleteRelationshipSer
 
 export const getRelationships = async (req, res) => {
 
-     const { postId } = req.query;
+     const { followedUserId } = req.query;
 
-     const { message } = await getRelationshipServices(postId);
+     const { message } = await getRelationshipServices(followedUserId);
 
-     return res.status(200).json(message.map(like=>like.userId));
+     return res.status(200).json(message.map(relationship=>relationship.followerUserId));
 };
 
 export const addRelationShips = async (req, res) => {

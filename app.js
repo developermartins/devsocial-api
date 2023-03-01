@@ -7,6 +7,7 @@ import userRoutes from "./routes/users.js";
 import commentsRoutes from "./routes/comments.js";
 import likesRoutes from "./routes/likes.js";
 import postsRoutes from "./routes/posts.js";
+import relationshipsRoutes from "./routes/relationships.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import multer from "multer";
@@ -48,5 +49,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/comments", commentsRoutes);
 app.use("/api/posts", postsRoutes);
 app.use("/api/likes", likesRoutes);
+app.use("/api/relationships", relationshipsRoutes);
 
 app.listen(port, () => console.log(`App listening on port ${port}! 👌`));

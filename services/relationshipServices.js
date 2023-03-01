@@ -1,7 +1,7 @@
 import { getRelationships, addRelationship, deleteRelationship } from "../model/relationshipModel.js";
 
-export const getRelationshipServices = async (postId) => {
-     const res = await getRelationships(postId);
+export const getRelationshipServices = async (followedUserId) => {
+     const res = await getRelationships(followedUserId);
 
      return { type: null, message: res };
 };

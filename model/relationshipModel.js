@@ -1,7 +1,7 @@
 import { connection } from "./connect.js";
 
 export const getRelationships = async (followedUserId) => {
-     const result = await connection.execute (
+     const [result] = await connection.execute (
           `SELECT followerUserId from relationships WHERE followedUserId = ?`,
           [followedUserId]
      );
