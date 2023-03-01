@@ -6,10 +6,10 @@ export const getRelationshipServices = async (followedUserId) => {
      return { type: null, message: res };
 };
 
-export const addRelationshipServices = async (userId, postId) => {
-     await addRelationship(userId, postId);
+export const addRelationshipServices = async (followerUserId, followedUserId) => {
+     await addRelationship(followerUserId, followedUserId);
 
-     return { type: null, message: "Post has been liked!" };
+     return { type: null, message: "Following!" };
 };
 
 export const deleteRelationshipServices = async (userId, postId) => {

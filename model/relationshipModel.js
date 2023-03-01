@@ -9,10 +9,10 @@ export const getRelationships = async (followedUserId) => {
      return result;
 };
 
-export const addRelationship = async (userId, postId) => {
+export const addRelationship = async (followerUserId, followedUserId) => {
      const [result] = await connection.execute (
-         "INSERT INTO likes (`userId`, `postId`) VALUES (?, ?)",
-          [userId, postId]
+         "INSERT INTO relationships (`followerUserId`, `followedUserId`) VALUES (?, ?)",
+          [followerUserId, followedUserId]
      );
 
      return result;
