@@ -1,9 +1,9 @@
 import { connection } from "./connect.js";
 
-export const getRelationships = async (postId) => {
-     const [result] = await connection.execute (
-          `SELECT userId from likes WHERE postId = ?`,
-          [postId]
+export const getRelationships = async (followedUserId) => {
+     const result = await connection.execute (
+          `SELECT followerUserId from relationships WHERE followedUserId = ?`,
+          [followedUserId]
      );
 
      return result;
