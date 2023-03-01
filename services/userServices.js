@@ -1,3 +1,5 @@
+import { getUserById } from "../model/userModel";
+
 export const getUserServices = async (userId) => {
      if (!userId) return { type: 'BAD_REQUEST', message: 'User Id is required!' };
 
