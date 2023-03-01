@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import * as dotenv from 'dotenv';
-import { getRelationshipServices, addRelationshipServices, deleteRelationshipServices } from "../services/likeServices.js";
+import { getRelationshipServices, addRelationshipServices, deleteRelationshipServices } from "../services/relationshipServices.js";
 
 export const getRelationships = async (req, res) => {
 
