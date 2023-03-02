@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import mongoose, { Mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import multer from 'multer';
@@ -14,6 +14,7 @@ import postsRoutes from './routes/posts.js';
 import { fileURLToPath } from 'url';
 import { register } from './controllers/auth.js';
 import { verifyToken } from './middleware/auth.js';
+import { createPost } from './controllers/posts.js';
 
 /* CONFIG */
 
@@ -46,6 +47,7 @@ const upload = multer({ storage });
 /* ROUTES WITH FILE */
 
 app.post("/auth", upload.single("picture"), register);
+app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /*ROUTES*/
 
