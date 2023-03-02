@@ -55,5 +55,3 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
      app.listen(port, () => console.log(`Server Port: ${port}`));
 }).catch((error) => console.log(`${error} did not connect.`));
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
