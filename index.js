@@ -27,3 +27,17 @@ app.use("/assets", express.static(path.join(__dirname, 'public/assets')));
 app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
+/* FILE STORAGE */
+
+const storage = multer.diskStorage({
+     destination: function(req, file, cb) {
+          cb(null, "public/assets");
+     },
+
+     filename: function(req, file, cb) {
+          cb(null, file.originalname);
+     }
+});
+
+const upload = multer({ storage });
+
