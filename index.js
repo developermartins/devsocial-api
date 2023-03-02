@@ -11,6 +11,7 @@ import authRoutes from './routes/auth.js';
 
 import { fileURLToPath } from 'url';
 import { register } from './controllers/auth.js';
+import { verifyToken } from './middleware/auth.js';
 
 /* CONFIG */
 
@@ -42,7 +43,7 @@ const upload = multer({ storage });
 
 /* ROUTES WITH FILE */
 
-app.post("/auth", upload.single("picture"), register);
+app.post("/auth", upload.single("picture"), verifyToken, register);
 
 /* MONGOOSE SETUP */
 
