@@ -10,7 +10,10 @@ import path from 'path';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/user.js';
 import postsRoutes from './routes/posts.js';
+// import User from './models/User.js';
+// import Post from './models/Post.js';
 
+// import { users, posts } from './data/index.js';
 import { fileURLToPath } from 'url';
 import { register } from './controllers/auth.js';
 import { verifyToken } from './middleware/auth.js';
@@ -64,4 +67,8 @@ mongoose.connect(process.env.MONGO_URL, {
      useUnifiedTopology: true,
 }).then(() => {
      app.listen(port, () => console.log(`Server Port: ${port}`));
+
+     /* INJECT MOCK DATA */
+     // User.insertMany(users);
+     // Post.insertMany(posts);
 }).catch((error) => console.log(`${error} did not connect.`));
