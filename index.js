@@ -43,7 +43,7 @@ const upload = multer({ storage });
 
 /* ROUTES WITH FILE */
 
-app.post("/auth", upload.single("picture"), verifyToken, register);
+app.post("/auth", upload.single("picture"), register);
 
 /* MONGOOSE SETUP */
 
