@@ -29,7 +29,7 @@ export const createPost = async (req, res) => {
 };
 
 
-export const getFeedPosts = async (req, res) => {
+export const getFeedPosts = async (_req, res) => {
      try {
           const post = await Post.find();
 
